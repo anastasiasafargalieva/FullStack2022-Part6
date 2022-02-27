@@ -39,7 +39,7 @@ const reducer = (state = initialState, action) => {
 
   }
 
-  return state
+//return state
 }
 
 export const voteAction = (id) =>  { return {type: 'VOTE', data: {id: id}} }
