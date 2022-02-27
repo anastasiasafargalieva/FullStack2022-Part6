@@ -23,7 +23,7 @@ const App = () => {
     </div>
   )
 }
-
+import store from "./store";
 const renderApp = () => {
   ReactDOM.render(<App />, document.getElementById('root'))
 }
