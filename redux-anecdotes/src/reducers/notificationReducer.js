@@ -16,11 +16,13 @@ const reducer = (state = initialNotification, action) => {
     }
 }
 
-export const notificationAction = message => {
-    return {
-        type: 'NOTIFY',
-        data: { message: message }
-    }
+let clearNotificationReference = null
+
+export const setNotificationAction = (message, timeout = 5) => {
+    return async dispatch => {
+        dispatch( {type: 'NOTIFY', data: { message: message }} )
+        if (clearNotificationReference) clearTimeout(clearNotificationReference)
+        clearNotificationReference = setTimeout(() => dispatch(clearNotificationAction()), timeout*1000)}
 }
 
 export const clearNotificationAction = () => {
